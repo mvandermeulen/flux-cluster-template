@@ -28,7 +28,7 @@ spec:
   dependsOn:
     - name: democratic-csi
       namespace: storage
-    - name: ingress-nginx
+    - name: nginx-internal
       namespace: networking
   values:
     initContainers:
