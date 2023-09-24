@@ -13,3 +13,4 @@ resources:
 #  - ./smartctl-exporter/ks.yaml
 #  - ./snmp-exporter/ks.yaml
   - ./speedtest-exporter/speedtest-exporter.yaml
+  - ./unpoller/ks.yaml
