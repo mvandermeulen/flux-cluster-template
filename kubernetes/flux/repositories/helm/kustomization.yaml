@@ -44,7 +44,7 @@ resources:
   - ./rook-ceph.yaml
   - ./stakater.yaml
   - ./synology-csi.yaml
-  - ./victoriametric-charts.yaml
+  - ./victoriametrics-charts.yaml
   - ./vmware-tanzu.yaml
   - ./weave-gitops.yaml
   - ./xunholy-charts.yaml
