@@ -28,7 +28,7 @@ spec:
     keepHistory: false
   values:
     runnerScaleSetName: arc-runner-set-home-ops
-    githubConfigUrl: https://github.com/dstewen/k3s-vms-flux
+    githubConfigUrl: https://github.com/dstewen/flux-cluster-template
 #    githubConfigSecret: pre-defined-secret
     minRunners: 1
     maxRunners: 3
