@@ -27,7 +27,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-  path: ./kubernetes/apps/default/plex/auto-languages
+  path: ./kubernetes/apps/media/plex/auto-languages
   prune: true
   sourceRef:
     kind: GitRepository
@@ -46,7 +46,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-  path: ./kubernetes/apps/default/plex/off-deck
+  path: ./kubernetes/apps/media/plex/off-deck
   prune: true
   sourceRef:
     kind: GitRepository

@@ -8,7 +8,7 @@ metadata:
 spec:
   dependsOn:
     - name: cluster-apps-external-secrets-stores
-  path: ./kubernetes/apps/default/sabnzbd/app
+  path: ./kubernetes/apps/media/sabnzbd/app
   prune: true
   sourceRef:
     kind: GitRepository

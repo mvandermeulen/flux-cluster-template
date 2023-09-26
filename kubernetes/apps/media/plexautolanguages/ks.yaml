@@ -2,13 +2,13 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: cluster-workloads-plexautolanguages
+  name: cluster-apps-plexautolanguages
   namespace: flux-system
 spec:
   dependsOn:
-    - name: cluster-workloads-rook-ceph-cluster
-    - name: cluster-workloads-volsync
-  path: ./k8s/cluster-0/workloads/media/plexautolanguages/app
+    - name: cluster-apps-rook-ceph-cluster
+    - name: cluster-apps-volsync
+  path: ./kubernetes/apps/media/plexautolanguages/app
   prune: true
   sourceRef:
     kind: GitRepository

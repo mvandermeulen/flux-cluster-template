@@ -6,7 +6,7 @@ metadata:
   name: cluster-apps-qbittorrent
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/default/qbittorrent/app
+  path: ./kubernetes/apps/media/qbittorrent/app
   prune: true
   sourceRef:
     kind: GitRepository
@@ -23,7 +23,7 @@ metadata:
   name: cluster-apps-qbittorrent-tag
   namespace: flux-system
 spec:
-  path: ./kubernetes/apps/default/qbittorrent/tag
+  path: ./kubernetes/apps/media/qbittorrent/tag
   prune: true
   sourceRef:
     kind: GitRepository

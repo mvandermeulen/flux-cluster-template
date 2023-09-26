@@ -28,7 +28,7 @@ spec:
       tag: 0.3.4.2193
 
     env:
-      TZ: "${TIMEZONE}"
+      TZ: Australia/Melbourne
 
     service:
       main:

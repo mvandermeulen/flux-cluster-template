@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: bazarr
-  namespace: default
+  namespace: media
   labels:
     integration.home.arpa/postgres: "true"
     integration.home.arpa/rook: "true"
@@ -49,7 +49,7 @@ spec:
       repository: ghcr.io/onedr0p/bazarr
       tag: 1.2.4@sha256:7441744e7cb5b48c253214d387ea28563e3f171b7870b1f901323970056f76fa
     env:
-      TZ: America/New_York
+      TZ: Australia/Melbourne
     envFrom: *envFrom
     service:
       main:

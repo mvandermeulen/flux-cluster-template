@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: plex-off-deck
-  namespace: default
+  namespace: media
 spec:
   interval: 30m
   chart:
@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   dependsOn:
     - name: plex
-      namespace: default
+      namespace: media
   values:
     controller:
       type: cronjob
@@ -40,7 +40,7 @@ spec:
       tag: 1.0.893@sha256:eb8b245e79bae07ec6b00044a95269e1f2e97005cd704ad9d77a0b31c5f28894
     args: ["/entrypoint.sh", "--playlists", "Smart Toons"]
     env:
-      TZ: America/New_York
+      TZ: Australia/Melbourne
       JBOPS__SCRIPT_PATH: utility/off_deck.py
     service:
       main:

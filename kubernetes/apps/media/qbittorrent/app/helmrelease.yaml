@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: qbittorrent
-  namespace: default
+  namespace: media
 spec:
   interval: 30m
   chart:
@@ -39,7 +39,7 @@ spec:
       repository: ghcr.io/onedr0p/qbittorrent
       tag: 4.5.4@sha256:f0a74313d750bc437ba2ad34f3412de5ab9a978f3f5b74227a1bda69271fef3e
     env:
-      TZ: America/New_York
+      TZ: Australia/Melbourne
       QBITTORRENT__PORT: &port 80
       QBITTORRENT__BT_PORT: &bittorrentPort 50413
     service:

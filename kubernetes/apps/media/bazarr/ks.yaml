@@ -7,7 +7,7 @@ metadata:
   namespace: flux-system
   labels:
     integration.home.arpa/postgres: "true"
-    integration.home.arpa/rook: "true"
+#    integration.home.arpa/rook: "true"
 spec:
   dependsOn:
     - name: cluster-apps-cloudnative-pg-cluster

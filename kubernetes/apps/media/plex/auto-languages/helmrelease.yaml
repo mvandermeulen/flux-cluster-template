@@ -4,7 +4,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: plex-auto-languages
-  namespace: default
+  namespace: media
 spec:
   interval: 30m
   chart:
@@ -27,7 +27,7 @@ spec:
     keepHistory: false
   dependsOn:
     - name: plex
-      namespace: default
+      namespace: media
   values:
     controller:
       annotations:
@@ -36,7 +36,7 @@ spec:
       repository: docker.io/remirigal/plex-auto-languages
       tag: v1.2.3
     env:
-      PLEX_URL: http://plex.default.svc.cluster.local:32400
+      PLEX_URL: http://plex.media.svc.cluster.local:32400
       REFRESH_LIBRARY_ON_SCAN: false
     envFrom:
       - secretRef:
