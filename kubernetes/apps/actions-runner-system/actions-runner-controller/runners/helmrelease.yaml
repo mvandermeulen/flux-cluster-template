@@ -29,7 +29,7 @@ spec:
   values:
     runnerScaleSetName: arc-runner-set-home-ops
     githubConfigUrl: https://github.com/dstewen/flux-cluster-template
-    githubConfigSecret: actions-runner-controller-auth-secret
+    githubConfigSecret: pre-defined-secret
     minRunners: 1
     maxRunners: 3
     containerMode:
