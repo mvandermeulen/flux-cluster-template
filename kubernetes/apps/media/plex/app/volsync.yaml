@@ -1,11 +1,11 @@
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/external-secrets.io/externalsecret_v1beta1.json
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
   name: plex-restic
-  namespace: media
+  namespace: default
 spec:
-  refreshInterval: 5m
   secretStoreRef:
     kind: ClusterSecretStore
     name: onepassword-connect
@@ -13,12 +13,9 @@ spec:
     name: plex-restic-secret
     creationPolicy: Owner
     template:
-      metadata:
-        annotations:
-          replicator.v1.mittwald.de/replicate-to: 'volsync'
       engineVersion: v2
       data:
-        RESTIC_REPOSITORY: '{{ .REPOSITORY_TEMPLATE }}/v1-plex'
+        RESTIC_REPOSITORY: '{{ .REPOSITORY_TEMPLATE }}/plex'
         RESTIC_PASSWORD: '{{ .RESTIC_PASSWORD }}'
         AWS_ACCESS_KEY_ID: '{{ .AWS_ACCESS_KEY_ID }}'
         AWS_SECRET_ACCESS_KEY: '{{ .AWS_SECRET_ACCESS_KEY }}'
@@ -26,27 +23,28 @@ spec:
     - extract:
         key: volsync-restic-template
 ---
+# yaml-language-server: $schema=https://kubernetes-schemas.devbu.io/volsync.backube/replicationsource_v1alpha1.json
 apiVersion: volsync.backube/v1alpha1
 kind: ReplicationSource
 metadata:
   name: plex
-  namespace: media
+  namespace: default
 spec:
-  sourcePVC: plex-config-0
+  sourcePVC: config-plex-0
   trigger:
-    schedule: "0 4 * * *"
+    schedule: "0 7 * * *"
   restic:
+    copyMethod: Snapshot
+    pruneIntervalDays: 7
+    repository: plex-restic-secret
+    cacheCapacity: 8Gi
+    cacheStorageClassName: local-path
+    volumeSnapshotClassName: csi-ceph-blockpool
+    storageClassName: ceph-block
     moverSecurityContext:
       runAsUser: 568
       runAsGroup: 568
       fsGroup: 568
-    copyMethod: Snapshot
-    pruneIntervalDays: 10
-    repository: plex-restic-secret
-    cacheCapacity: 10Gi
-    volumeSnapshotClassName: csi-ceph-blockpool
-    storageClassName: ceph-block
-    cacheStorageClassName: local-path
     retain:
-      daily: 2
+      daily: 7
       within: 3d
