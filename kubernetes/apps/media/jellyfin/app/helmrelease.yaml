@@ -92,13 +92,17 @@ spec:
       fsGroup: 568
       fsGroupChangePolicy: OnRootMismatch
       supplementalGroups: [44, 105, 10000]
-    volumeClaimTemplates:
-      - name: jellyfin-config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 50Gi
-        storageClass: synology-iscsi-retain
+#    volumeClaimTemplates:
+#      - name: jellyfin-config
+#        mountPath: /config
+#        accessMode: ReadWriteOnce
+#        size: 50Gi
+#        storageClass: synology-iscsi-retain
     persistence:
+      config:
+        enabled: true
+        existingClaim: jellyfin-config
+        mountPath: /config
       media:
         enabled: true
         type: nfs
