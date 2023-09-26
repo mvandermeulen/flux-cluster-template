@@ -9,6 +9,7 @@ resources:
   - ./external-secrets/ks.yaml
   - ./local-path-provisioner/ks.yaml
   - ./metrics-server/ks.yaml
+  - ./nfs-subdir-external-provisioner/ks.yaml
   - ./onepassword-connect/ks.yaml
   - ./reloader/ks.yaml
   - ./snapshot-controller/ks.yaml
