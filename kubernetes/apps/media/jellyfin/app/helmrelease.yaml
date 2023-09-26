@@ -39,11 +39,12 @@ spec:
       repository: ghcr.io/onedr0p/jellyfin
       tag: 10.8.10@sha256:2233b349ac3aa41dd03808cf2feb57aa7e2f82a111f244d795ac2c11f8b45a88
     env:
-      DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
-      JELLYFIN_FFmpeg__probesize: 50000000
-      JELLYFIN_FFmpeg__analyzeduration: 50000000
+#      DOTNET_SYSTEM_IO_DISABLEFILELOCKING: "true"
+#      JELLYFIN_FFmpeg__probesize: 50000000
+#      JELLYFIN_FFmpeg__analyzeduration: 50000000
       JELLYFIN_PublishedServerUrl: &loadBalancerIP 192.168.10.222
       TZ: Australia/Melbourne
+      JELLYFIN_CACHE_DIR: "/config/cache"
     service:
       main:
         type: LoadBalancer
