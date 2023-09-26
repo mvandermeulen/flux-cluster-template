@@ -25,7 +25,9 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-#  dependsOn:
+  dependsOn:
+    - name: nfs-subdir-external-provisioner
+      namespace: kube-system
 #    - name: intel-device-plugin-gpu
 #      namespace: kube-system
 #    - name: rook-ceph-cluster
