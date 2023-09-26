@@ -36,6 +36,7 @@ resources:
   - ./longhorn.yaml
   - ./metrics-server.yaml
   - ./nextcloud.yaml
+  - ./nfs-provisioner.yaml
 #  - ./nfs-subdir-external-provisioner-charts.yaml
   - ./piraeus.yaml
   - ./prometheus-community.yaml
