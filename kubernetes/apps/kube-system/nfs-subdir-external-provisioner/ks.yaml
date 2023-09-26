@@ -6,9 +6,9 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m
-  path: "./apps/kube-system/nfs-subdir-external-provisioner/app"
+  path: ./kubernetes/apps/kube-system/nfs-subdir-external-provisioner/app
   prune: true
   sourceRef:
-    kind: OCIRepository
-    name: home-ops
+    kind: GitRepository
+    name: home-kubernetes
   wait: true
