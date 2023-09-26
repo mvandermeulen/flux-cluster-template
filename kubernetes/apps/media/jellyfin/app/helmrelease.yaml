@@ -95,7 +95,7 @@ spec:
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 50Gi
-        storageClass: democratic-csi
+        storageClass: synology-iscsi-retain
     persistence:
       media:
         enabled: true
